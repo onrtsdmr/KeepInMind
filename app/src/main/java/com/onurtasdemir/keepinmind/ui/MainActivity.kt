@@ -1,7 +1,8 @@
-package com.onurtasdemir.keepinmind
+package com.onurtasdemir.keepinmind.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.onurtasdemir.keepinmind.R
 
 class MainActivity : AppCompatActivity() {
 
