@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">KeepInMind</string>
+
+
+    <!-- Buttons -->
+    <string name="btn_play">New Game</string>
+
+    <!-- Levels -->
+    <string name="btn_level_easy">Easy</string>
+    <string name="btn_level_normal">Normal</string>
+    <string name="btn_level_hard">Hard</string>
+
+    <!-- Time -->
+    <string name="easy_time">60</string>
 </resources>
