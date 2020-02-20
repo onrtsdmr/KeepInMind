@@ -6,7 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.onurtasdemir.keepinmind.R
 import com.onurtasdemir.keepinmind.data.ApiClient
 import com.onurtasdemir.keepinmind.model.ImageModel
-import com.onurtasdemir.keepinmind.util.extIconWithStartActivity
+import com.onurtasdemir.keepinmind.util.extSetRotateInAnimator
+import com.onurtasdemir.keepinmind.util.extStartActivity
+import com.podcopic.animationlib.library.AnimationType
+import com.podcopic.animationlib.library.StartSmartAnimation
+import kotlinx.android.synthetic.main.activity_splash.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,6 +22,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        imgBrainSplash.extSetRotateInAnimator()
         apiClient.getImages().enqueue(object : Callback<ImageModel> {
             override fun onFailure(call: Call<ImageModel>, t: Throwable) {
 
@@ -25,17 +30,18 @@ class SplashActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<ImageModel>, response: Response<ImageModel>) {
                 iconArrayList = response.body()?.iconArrayList!!
-                object : CountDownTimer(1500, 1000) {
+                object : CountDownTimer(2000, 1000) {
                     override fun onFinish() {
-                        this@SplashActivity.extIconWithStartActivity(
+                        val bundle = Bundle()
+                        bundle.putStringArrayList("iconArrayList", iconArrayList)
+                        this@SplashActivity.extStartActivity(
                             MainActivity::class.java,
-                            iconArrayList
+                            bundle
                         )
                         finish()
                     }
 
                     override fun onTick(millisUntilFinished: Long) {
-
                     }
                 }.start()
             }
