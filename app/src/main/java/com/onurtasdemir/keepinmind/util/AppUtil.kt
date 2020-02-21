@@ -15,7 +15,7 @@ import kotlin.collections.ArrayList
 fun <T> Array<T>.shuffle(): Array<T> {
     val rng = Random()
     for (index in this.indices) {
-        val randomIndex = rng.nextInt(index+1)
+        val randomIndex = rng.nextInt(index + 1)
         val temp = this[index]
         this[index] = this[randomIndex]
         this[randomIndex] = temp
@@ -45,6 +45,6 @@ fun Context.extSetSrc(stringUrl: String, imgId: ImageView) {
         .into(imgId)
 }
 
-fun ImageView.extSetRotateInAnimator(){
-    StartSmartAnimation.startAnimation(this, AnimationType.FadeIn,1000,1,true)
+fun ImageView.extSetRotateInAnimator() {
+    StartSmartAnimation.startAnimation(this, AnimationType.FadeIn, 1000, 1, true)
 }

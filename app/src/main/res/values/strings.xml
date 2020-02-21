@@ -12,4 +12,7 @@
 
     <!-- Time -->
     <string name="easy_time">60</string>
+
+    <!-- Network   -->
+    <string name="reload">Yenile</string>
 </resources>
