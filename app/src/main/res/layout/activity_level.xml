@@ -3,29 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/ic_choose_level"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".ui.LevelActivity">
+
 
     <Button
         android:id="@+id/btnEasy"
-        android:layout_margin="8dp"
-        android:layout_gravity="center"
-        android:text="@string/btn_level_easy"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_selector"
+        android:text="@string/btn_level_easy"
+        android:textColor="@color/white" />
+
     <Button
         android:id="@+id/btnNormal"
-        android:layout_margin="8dp"
-        android:layout_gravity="center"
-        android:text="@string/btn_level_easy"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:layout_margin="8dp"
+        android:background="@drawable/button_selector"
+        android:text="@string/btn_level_normal"
+        android:textColor="@color/white" />
+
     <Button
         android:id="@+id/btnHard"
-        android:layout_margin="8dp"
-        android:layout_gravity="center"
-        android:text="@string/btn_level_easy"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_selector"
+        android:text="@string/btn_level_hard"
+        android:textColor="@color/white" />
+
 </LinearLayout>
