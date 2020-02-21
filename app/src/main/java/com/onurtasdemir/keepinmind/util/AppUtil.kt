@@ -45,6 +45,6 @@ fun Context.extSetSrc(stringUrl: String, imgId: ImageView) {
         .into(imgId)
 }
 
-fun ImageView.extSetRotateInAnimator() {
-    StartSmartAnimation.startAnimation(this, AnimationType.FadeIn, 1000, 1, true)
+infix fun ImageView.extSetRotateInAnimator(duration: Long) {
+    StartSmartAnimation.startAnimation(this, AnimationType.FadeIn, duration, 1, true)
 }

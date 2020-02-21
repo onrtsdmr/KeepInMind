@@ -22,9 +22,8 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        imgBrainSplash.extSetRotateInAnimator()
+        imgBrainSplash extSetRotateInAnimator 2000
         getImageArray()
-
     }
 
     infix fun String.extShowSnackbar(view: View) {
@@ -35,7 +34,7 @@ class SplashActivity : AppCompatActivity() {
         ).setAction(R.string.reload) {
             getImageArray()
         }
-        .show()
+            .show()
     }
 
     private fun getImageArray() {
@@ -49,22 +48,26 @@ class SplashActivity : AppCompatActivity() {
                 splashProgressBar.visibility = View.INVISIBLE
                 splashCheckView.check()
                 iconArrayList = response.body()?.iconArrayList!!
-                object : CountDownTimer(2000, 1000) {
-                    override fun onFinish() {
-                        val bundle = Bundle()
-                        bundle.putStringArrayList("iconArrayList", iconArrayList)
-                        this@SplashActivity.extStartActivity(
-                            MainActivity::class.java,
-                            bundle
-                        )
-                        finish()
-                    }
-                    override fun onTick(millisUntilFinished: Long) {}
-                }.start()
+                4000L extCountDownTimer 1000
             }
         })
     }
-}
 
+    infix fun Long.extCountDownTimer(countDownTimer: Long) {
+        object : CountDownTimer(this, countDownTimer) {
+            override fun onFinish() {
+                val bundle = Bundle()
+                bundle.putStringArrayList("iconArrayList", iconArrayList)
+                this@SplashActivity.extStartActivity(
+                    MainActivity::class.java,
+                    bundle
+                )
+                finish()
+            }
+
+            override fun onTick(millisUntilFinished: Long) {}
+        }.start()
+    }
+}
 
 
