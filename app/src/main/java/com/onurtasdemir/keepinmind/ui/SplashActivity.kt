@@ -48,7 +48,7 @@ class SplashActivity : AppCompatActivity() {
                 splashProgressBar.visibility = View.INVISIBLE
                 splashCheckView.check()
                 iconArrayList = response.body()?.iconArrayList!!
-                4000L extCountDownTimer 1000
+                2000L extCountDownTimer 1000
             }
         })
     }
