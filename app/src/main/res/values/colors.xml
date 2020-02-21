@@ -4,10 +4,10 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <!-- background -->
-    <color name="background">#333333</color>
-
     <!-- colors -->
+    <color name="background">#333333</color>
+    <color name="new_game_button">#4F4F4F</color>
+    <color name="new_game_stroke">#878787</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
 </resources>
