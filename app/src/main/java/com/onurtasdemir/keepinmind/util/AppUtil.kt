@@ -5,7 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.onurtasdemir.keepinmind.R
+import com.onurtasdemir.keepinmind.enums.Level
+import com.onurtasdemir.keepinmind.fragment.EasyFragment
+import com.onurtasdemir.keepinmind.fragment.HardFragment
+import com.onurtasdemir.keepinmind.fragment.NormalFragment
 import com.podcopic.animationlib.library.AnimationType
 import com.podcopic.animationlib.library.StartSmartAnimation
 import java.util.*
@@ -48,3 +55,24 @@ fun <T> Array<T>.shuffle(): Array<T> {
 infix fun String.extToastShow(context: Context) {
     Toast.makeText(context, this, Toast.LENGTH_SHORT).show()
 }
+
+infix fun AppCompatActivity.extSetFragmentPlayActivity(fragment: Fragment) {
+    supportFragmentManager
+        .beginTransaction()
+        .replace(R.id.frmPlayContainer, fragment)
+        .commit()
+}
+infix fun AppCompatActivity.extSetLevelFragment(level: String){
+    when (level) {
+        Level.EASY.toString() -> {
+            this extSetFragmentPlayActivity EasyFragment()
+        }
+        Level.NORMAL.toString() -> {
+            this extSetFragmentPlayActivity NormalFragment()
+        }
+        Level.HARD.toString() -> {
+            this extSetFragmentPlayActivity HardFragment()
+        }
+    }
+}
+
