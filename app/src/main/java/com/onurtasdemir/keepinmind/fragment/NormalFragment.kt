@@ -2,11 +2,10 @@ package com.onurtasdemir.keepinmind.fragment
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
 import com.onurtasdemir.keepinmind.R
 import com.onurtasdemir.keepinmind.util.extArray
 import com.onurtasdemir.keepinmind.util.extCheckCard
@@ -21,7 +20,6 @@ class NormalFragment : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_normal, container, false)
     }
 
@@ -41,15 +39,15 @@ class NormalFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.normalImgView1-> iconArrayList.extCheckCard(normalImgView1, view!!.context, 0)
-            R.id.normalImgView2-> iconArrayList.extCheckCard(normalImgView2, view!!.context, 1)
-            R.id.normalImgView3-> iconArrayList.extCheckCard(normalImgView3, view!!.context, 2)
-            R.id.normalImgView4-> iconArrayList.extCheckCard(normalImgView4, view!!.context, 3)
-            R.id.normalImgView5-> iconArrayList.extCheckCard(normalImgView5, view!!.context, 4)
-            R.id.normalImgView6-> iconArrayList.extCheckCard(normalImgView6, view!!.context, 5)
-            R.id.normalImgView7-> iconArrayList.extCheckCard(normalImgView7, view!!.context, 6)
-            R.id.normalImgView8-> iconArrayList.extCheckCard(normalImgView8, view!!.context, 7)
+        when (v!!.id) {
+            R.id.normalImgView1 -> iconArrayList.extCheckCard(normalImgView1, view!!.context, 0)
+            R.id.normalImgView2 -> iconArrayList.extCheckCard(normalImgView2, view!!.context, 1)
+            R.id.normalImgView3 -> iconArrayList.extCheckCard(normalImgView3, view!!.context, 2)
+            R.id.normalImgView4 -> iconArrayList.extCheckCard(normalImgView4, view!!.context, 3)
+            R.id.normalImgView5 -> iconArrayList.extCheckCard(normalImgView5, view!!.context, 4)
+            R.id.normalImgView6 -> iconArrayList.extCheckCard(normalImgView6, view!!.context, 5)
+            R.id.normalImgView7 -> iconArrayList.extCheckCard(normalImgView7, view!!.context, 6)
+            R.id.normalImgView8 -> iconArrayList.extCheckCard(normalImgView8, view!!.context, 7)
         }
     }
 }

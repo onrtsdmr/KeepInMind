@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:padding="30dp">
+        android:padding="32dp">
 
         <ImageButton
             android:id="@+id/normalImgView1"
@@ -39,7 +39,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:padding="30dp">
+        android:padding="32dp">
 
         <ImageButton
             android:id="@+id/normalImgView3"
@@ -65,7 +65,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:padding="30dp">
+        android:padding="32dp">
 
         <ImageButton
             android:id="@+id/normalImgView5"
@@ -91,7 +91,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:padding="30dp">
+        android:padding="32dp">
 
         <ImageButton
             android:id="@+id/normalImgView7"
