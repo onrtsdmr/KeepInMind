@@ -92,12 +92,14 @@ fun AppCompatActivity.extSetLevelFragment(bundle: Bundle, level: String) {
             this extSetFragmentPlayActivity easyFragment
         }
         Level.NORMAL.toString() -> {
-            NormalFragment().arguments = bundle
-            this extSetFragmentPlayActivity NormalFragment()
+            val normalFragment = NormalFragment()
+            normalFragment.arguments = bundle
+            this extSetFragmentPlayActivity normalFragment
         }
         Level.HARD.toString() -> {
-            HardFragment().arguments = bundle
-            this extSetFragmentPlayActivity HardFragment()
+            val hardFragment = HardFragment()
+            hardFragment.arguments = bundle
+            this extSetFragmentPlayActivity hardFragment
         }
     }
 }

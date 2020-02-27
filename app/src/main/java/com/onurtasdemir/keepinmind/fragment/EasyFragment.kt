@@ -35,18 +35,10 @@ class EasyFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v!!.id) {
-            R.id.easyImgView1 -> {
-                iconArrayList.extCheckCard(easyImgView1, view!!.context, 0)
-            }
-            R.id.easyImgView2 -> {
-                iconArrayList.extCheckCard(easyImgView2, view!!.context, 1)
-            }
-            R.id.easyImgView3 -> {
-                iconArrayList.extCheckCard(easyImgView3, view!!.context, 2)
-            }
-            R.id.easyImgView4 -> {
-                iconArrayList.extCheckCard(easyImgView4, view!!.context, 3)
-            }
+            R.id.easyImgView1 -> iconArrayList.extCheckCard(easyImgView1, view!!.context, 0)
+            R.id.easyImgView2 -> iconArrayList.extCheckCard(easyImgView2, view!!.context, 1)
+            R.id.easyImgView3 -> iconArrayList.extCheckCard(easyImgView3, view!!.context, 2)
+            R.id.easyImgView4 -> iconArrayList.extCheckCard(easyImgView4, view!!.context, 3)
         }
     }
 }
