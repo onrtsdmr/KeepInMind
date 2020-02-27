@@ -26,16 +26,7 @@ class SplashActivity : AppCompatActivity() {
         getImageArray()
     }
 
-    infix fun String.extShowSnackbar(view: View) {
-        Snackbar.make(
-            view,
-            this,
-            Snackbar.LENGTH_INDEFINITE
-        ).setAction(R.string.reload) {
-            getImageArray()
-        }
-            .show()
-    }
+
 
     private fun getImageArray() {
         apiClient.getImages().enqueue(object : Callback<ImageModel> {
@@ -67,5 +58,15 @@ class SplashActivity : AppCompatActivity() {
 
             override fun onTick(millisUntilFinished: Long) {}
         }.start()
+    }
+    infix fun String.extShowSnackbar(view: View) {
+        Snackbar.make(
+            view,
+            this,
+            Snackbar.LENGTH_INDEFINITE
+        ).setAction(R.string.reload) {
+            getImageArray()
+        }
+            .show()
     }
 }
