@@ -6,10 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.onurtasdemir.keepinmind.R
-import com.onurtasdemir.keepinmind.util.extArray
-import com.onurtasdemir.keepinmind.util.extCheckCard
-import com.onurtasdemir.keepinmind.util.shuffle
+import com.onurtasdemir.keepinmind.enums.Level
+import com.onurtasdemir.keepinmind.ui.PlayActivity
+import com.onurtasdemir.keepinmind.util.*
 import kotlinx.android.synthetic.main.fragment_easy.*
 
 class EasyFragment : Fragment(), View.OnClickListener {
@@ -34,10 +35,34 @@ class EasyFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v!!.id) {
-            R.id.easyImgView1 -> iconArrayList.extCheckCard(easyImgView1, view!!.context, 0)
-            R.id.easyImgView2 -> iconArrayList.extCheckCard(easyImgView2, view!!.context, 1)
-            R.id.easyImgView3 -> iconArrayList.extCheckCard(easyImgView3, view!!.context, 2)
-            R.id.easyImgView4 -> iconArrayList.extCheckCard(easyImgView4, view!!.context, 3)
+            R.id.easyImgView1 -> iconArrayList.extCheckCard(
+                easyImgView1,
+                activity!!,
+                0,
+                arguments!!,
+                Level.EASY.toString()
+            )
+            R.id.easyImgView2 -> iconArrayList.extCheckCard(
+                easyImgView2,
+                activity!!,
+                1,
+                arguments!!,
+                Level.EASY.toString()
+            )
+            R.id.easyImgView3 -> iconArrayList.extCheckCard(
+                easyImgView3,
+                activity!!,
+                2,
+                arguments!!,
+                Level.EASY.toString()
+            )
+            R.id.easyImgView4 -> iconArrayList.extCheckCard(
+                easyImgView4,
+                activity!!,
+                3,
+                arguments!!,
+                Level.EASY.toString()
+            )
         }
     }
 }

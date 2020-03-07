@@ -18,7 +18,7 @@ class LevelActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_level)
         iconArrayList = intent.getStringArrayListExtra("iconArrayList")!!
-        bundle.putStringArrayList("iconArrayList",iconArrayList)
+        bundle.putStringArrayList("iconArrayList", iconArrayList)
         btnEasy.setOnClickListener(this)
         btnNormal.setOnClickListener(this)
         btnHard.setOnClickListener(this)
@@ -26,13 +26,14 @@ class LevelActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v!!.id) {
-            R.id.btnEasy -> { this extStartPlayActivity Level.EASY.toString() }
-            R.id.btnNormal -> { this extStartPlayActivity Level.NORMAL.toString() }
-            R.id.btnHard -> { this extStartPlayActivity Level.HARD.toString() }
+            R.id.btnEasy -> this extStartPlayActivity Level.EASY.toString()
+            R.id.btnNormal -> this extStartPlayActivity Level.NORMAL.toString()
+            R.id.btnHard -> this extStartPlayActivity Level.HARD.toString()
         }
     }
-    private infix fun Context.extStartPlayActivity(level: String){
-        bundle.putString(TAG,level)
+
+    private infix fun Context.extStartPlayActivity(level: String) {
+        bundle.putString(TAG, level)
         this.extStartActivity(
             PlayActivity::class.java,
             bundle
