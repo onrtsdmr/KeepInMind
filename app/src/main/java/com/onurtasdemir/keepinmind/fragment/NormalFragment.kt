@@ -2,9 +2,7 @@ package com.onurtasdemir.keepinmind.fragment
 
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.onurtasdemir.keepinmind.R
 import com.onurtasdemir.keepinmind.enums.Level
@@ -14,16 +12,8 @@ import com.onurtasdemir.keepinmind.util.shuffle
 import kotlinx.android.synthetic.main.fragment_normal.*
 
 
-class NormalFragment : Fragment(), View.OnClickListener {
+class NormalFragment : Fragment(R.layout.fragment_normal), View.OnClickListener {
     private var iconArrayList = ArrayList<String>()
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_normal, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         iconArrayList = arguments?.getStringArrayList("iconArrayList")!!
@@ -43,59 +33,59 @@ class NormalFragment : Fragment(), View.OnClickListener {
         when (v!!.id) {
             R.id.normalImgView1 -> iconArrayList.extCheckCard(
                 normalImgView1,
-                view!!.context,
+                this,
                 0,
                 arguments!!,
-                Level.NORMAL.toString()
+                Level.HARD.toString()
             )
             R.id.normalImgView2 -> iconArrayList.extCheckCard(
                 normalImgView2,
-                view!!.context,
+                this,
                 1,
                 arguments!!,
-                Level.NORMAL.toString()
+                Level.HARD.toString()
             )
             R.id.normalImgView3 -> iconArrayList.extCheckCard(
                 normalImgView3,
-                view!!.context,
+                this,
                 2,
                 arguments!!,
-                Level.NORMAL.toString()
+                Level.HARD.toString()
             )
             R.id.normalImgView4 -> iconArrayList.extCheckCard(
                 normalImgView4,
-                view!!.context,
+                this,
                 3,
                 arguments!!,
-                Level.NORMAL.toString()
+                Level.HARD.toString()
             )
             R.id.normalImgView5 -> iconArrayList.extCheckCard(
                 normalImgView5,
-                view!!.context,
+                this,
                 4,
                 arguments!!,
-                Level.NORMAL.toString()
+                Level.HARD.toString()
             )
             R.id.normalImgView6 -> iconArrayList.extCheckCard(
                 normalImgView6,
-                view!!.context,
+                this,
                 5,
                 arguments!!,
-                Level.NORMAL.toString()
+                Level.HARD.toString()
             )
             R.id.normalImgView7 -> iconArrayList.extCheckCard(
                 normalImgView7,
-                view!!.context,
+                this,
                 6,
                 arguments!!,
-                Level.NORMAL.toString()
+                Level.HARD.toString()
             )
             R.id.normalImgView8 -> iconArrayList.extCheckCard(
                 normalImgView8,
-                view!!.context,
+                this,
                 7,
                 arguments!!,
-                Level.NORMAL.toString()
+                Level.HARD.toString()
             )
         }
     }

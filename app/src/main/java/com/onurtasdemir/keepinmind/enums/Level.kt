@@ -15,5 +15,10 @@ enum class Level {
         override fun toString(): String {
             return "Hard"
         }
+    },
+    FINISH{
+        override fun toString(): String {
+            return "Finish"
+        }
     }
 }

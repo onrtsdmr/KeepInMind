@@ -2,26 +2,17 @@ package com.onurtasdemir.keepinmind.fragment
 
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.onurtasdemir.keepinmind.R
 import com.onurtasdemir.keepinmind.enums.Level
-import com.onurtasdemir.keepinmind.ui.PlayActivity
-import com.onurtasdemir.keepinmind.util.*
+import com.onurtasdemir.keepinmind.util.extArray
+import com.onurtasdemir.keepinmind.util.extCheckCard
+import com.onurtasdemir.keepinmind.util.shuffle
 import kotlinx.android.synthetic.main.fragment_easy.*
 
-class EasyFragment : Fragment(), View.OnClickListener {
+class EasyFragment : Fragment(R.layout.fragment_easy), View.OnClickListener {
     private var iconArrayList = ArrayList<String>()
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_easy, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         iconArrayList = arguments?.getStringArrayList("iconArrayList")!!
@@ -37,31 +28,31 @@ class EasyFragment : Fragment(), View.OnClickListener {
         when (v!!.id) {
             R.id.easyImgView1 -> iconArrayList.extCheckCard(
                 easyImgView1,
-                activity!!,
+                this,
                 0,
                 arguments!!,
-                Level.EASY.toString()
+                Level.NORMAL.toString()
             )
             R.id.easyImgView2 -> iconArrayList.extCheckCard(
                 easyImgView2,
-                activity!!,
+                this,
                 1,
                 arguments!!,
-                Level.EASY.toString()
+                Level.NORMAL.toString()
             )
             R.id.easyImgView3 -> iconArrayList.extCheckCard(
                 easyImgView3,
-                activity!!,
+                this,
                 2,
                 arguments!!,
-                Level.EASY.toString()
+                Level.NORMAL.toString()
             )
             R.id.easyImgView4 -> iconArrayList.extCheckCard(
                 easyImgView4,
-                activity!!,
+                this,
                 3,
                 arguments!!,
-                Level.EASY.toString()
+                Level.NORMAL.toString()
             )
         }
     }

@@ -2,9 +2,7 @@ package com.onurtasdemir.keepinmind.fragment
 
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.onurtasdemir.keepinmind.R
 import com.onurtasdemir.keepinmind.enums.Level
@@ -13,16 +11,8 @@ import com.onurtasdemir.keepinmind.util.extCheckCard
 import com.onurtasdemir.keepinmind.util.shuffle
 import kotlinx.android.synthetic.main.fragment_hard.*
 
-class HardFragment : Fragment(), View.OnClickListener {
+class HardFragment : Fragment(R.layout.fragment_hard), View.OnClickListener {
     private var iconArrayList = ArrayList<String>()
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_hard, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         iconArrayList = arguments?.getStringArrayList("iconArrayList")!!
@@ -50,115 +40,115 @@ class HardFragment : Fragment(), View.OnClickListener {
         when (v!!.id) {
             R.id.hardImgView1 -> iconArrayList.extCheckCard(
                 hardImgView1,
-                view!!.context,
+                this,
                 0,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView2 -> iconArrayList.extCheckCard(
                 hardImgView2,
-                view!!.context,
+                this,
                 1,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView3 -> iconArrayList.extCheckCard(
                 hardImgView3,
-                view!!.context,
+                this,
                 2,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView4 -> iconArrayList.extCheckCard(
                 hardImgView4,
-                view!!.context,
+                this,
                 3,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView5 -> iconArrayList.extCheckCard(
                 hardImgView5,
-                view!!.context,
+                this,
                 4,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView6 -> iconArrayList.extCheckCard(
                 hardImgView6,
-                view!!.context,
+                this,
                 5,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView7 -> iconArrayList.extCheckCard(
                 hardImgView7,
-                view!!.context,
+                this,
                 6,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView8 -> iconArrayList.extCheckCard(
                 hardImgView8,
-                view!!.context,
+                this,
                 7,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView9 -> iconArrayList.extCheckCard(
                 hardImgView9,
-                view!!.context,
+                this,
                 8,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView10 -> iconArrayList.extCheckCard(
                 hardImgView10,
-                view!!.context,
+                this,
                 9,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView11 -> iconArrayList.extCheckCard(
                 hardImgView11,
-                view!!.context,
+                this,
                 10,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView12 -> iconArrayList.extCheckCard(
                 hardImgView12,
-                view!!.context,
+                this,
                 11,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView13 -> iconArrayList.extCheckCard(
                 hardImgView13,
-                view!!.context,
+                this,
                 12,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView14 -> iconArrayList.extCheckCard(
                 hardImgView14,
-                view!!.context,
+                this,
                 13,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView15 -> iconArrayList.extCheckCard(
                 hardImgView15,
-                view!!.context,
+                this,
                 14,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
             R.id.hardImgView16 -> iconArrayList.extCheckCard(
                 hardImgView16,
-                view!!.context,
+                this,
                 15,
                 arguments!!,
-                Level.HARD.toString()
+                Level.FINISH.toString()
             )
         }
     }

@@ -43,6 +43,7 @@ dependencies {
     implementation "androidx.legacy:legacy-support-v4:$version_legacy_support_v4"
     implementation "androidx.cardview:cardview:$version_cardview"
     implementation "com.github.bumptech.glide:glide:$version_glide"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor "com.github.bumptech.glide:compiler:$version_glide_compiler"
     implementation "com.github.ratty3697:android-smart-animation-library:$version_android_smart_animation_library"
     implementation "com.github.cdflynn:checkview:$version_checkview"
