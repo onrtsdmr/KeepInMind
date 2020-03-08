@@ -13,6 +13,7 @@ import com.onurtasdemir.keepinmind.fragment.EasyFragment
 import com.onurtasdemir.keepinmind.fragment.FinishGameFragment
 import com.onurtasdemir.keepinmind.fragment.HardFragment
 import com.onurtasdemir.keepinmind.fragment.NormalFragment
+import kotlinx.android.synthetic.main.activity_play.*
 
 private var counter: Int = 0
 private var counterGameOver: Int = 0
@@ -93,6 +94,7 @@ fun Fragment.extShowDialogWinner(bundle: Bundle, level: String) {
         }
         .setCancelable(false)
         .show()
+    gameTimer.cancel()
 }
 
 fun Fragment.extChangeLevel(bundle: Bundle,level: String){
@@ -121,4 +123,5 @@ infix fun Fragment.extShowDialogLoser(bundle: Bundle) {
         }
         .setCancelable(false)
         .show()
+    gameTimer.cancel()
 }

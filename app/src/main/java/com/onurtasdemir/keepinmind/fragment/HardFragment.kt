@@ -8,6 +8,7 @@ import com.onurtasdemir.keepinmind.R
 import com.onurtasdemir.keepinmind.enums.Level
 import com.onurtasdemir.keepinmind.util.extArray
 import com.onurtasdemir.keepinmind.util.extCheckCard
+import com.onurtasdemir.keepinmind.util.onCountDown
 import com.onurtasdemir.keepinmind.util.shuffle
 import kotlinx.android.synthetic.main.fragment_hard.*
 
@@ -18,6 +19,7 @@ class HardFragment : Fragment(R.layout.fragment_hard), View.OnClickListener {
         iconArrayList = arguments?.getStringArrayList("iconArrayList")!!
         iconArrayList = (iconArrayList extArray 15)
         iconArrayList = iconArrayList.shuffle()
+        this.onCountDown(arguments!!, Level.HARD.toString())
         hardImgView1.setOnClickListener(this)
         hardImgView2.setOnClickListener(this)
         hardImgView3.setOnClickListener(this)

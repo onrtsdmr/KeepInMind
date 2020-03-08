@@ -8,6 +8,7 @@ import com.onurtasdemir.keepinmind.R
 import com.onurtasdemir.keepinmind.enums.Level
 import com.onurtasdemir.keepinmind.util.extArray
 import com.onurtasdemir.keepinmind.util.extCheckCard
+import com.onurtasdemir.keepinmind.util.onCountDown
 import com.onurtasdemir.keepinmind.util.shuffle
 import kotlinx.android.synthetic.main.fragment_normal.*
 
@@ -19,6 +20,7 @@ class NormalFragment : Fragment(R.layout.fragment_normal), View.OnClickListener 
         iconArrayList = arguments?.getStringArrayList("iconArrayList")!!
         iconArrayList = (iconArrayList extArray 7)
         iconArrayList = iconArrayList.shuffle()
+        this.onCountDown(arguments!!, Level.NORMAL.toString())
         normalImgView1.setOnClickListener(this)
         normalImgView2.setOnClickListener(this)
         normalImgView3.setOnClickListener(this)

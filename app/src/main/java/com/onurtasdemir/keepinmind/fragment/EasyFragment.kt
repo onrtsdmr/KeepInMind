@@ -8,6 +8,7 @@ import com.onurtasdemir.keepinmind.R
 import com.onurtasdemir.keepinmind.enums.Level
 import com.onurtasdemir.keepinmind.util.extArray
 import com.onurtasdemir.keepinmind.util.extCheckCard
+import com.onurtasdemir.keepinmind.util.onCountDown
 import com.onurtasdemir.keepinmind.util.shuffle
 import kotlinx.android.synthetic.main.fragment_easy.*
 
@@ -18,6 +19,7 @@ class EasyFragment : Fragment(R.layout.fragment_easy), View.OnClickListener {
         iconArrayList = arguments?.getStringArrayList("iconArrayList")!!
         iconArrayList = (iconArrayList extArray 3)
         iconArrayList = iconArrayList.shuffle()
+        this.onCountDown(arguments!!, Level.EASY.toString())
         easyImgView1.setOnClickListener(this)
         easyImgView2.setOnClickListener(this)
         easyImgView3.setOnClickListener(this)

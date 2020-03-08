@@ -3,7 +3,9 @@ package com.onurtasdemir.keepinmind.util
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -15,6 +17,9 @@ import com.onurtasdemir.keepinmind.fragment.NormalFragment
 import java.util.*
 import kotlin.collections.ArrayList
 
+private const val timeSixty = 60000L
+private const val timeThirty = 30000L
+lateinit var gameTimer: CountDownTimer
 
 fun <T> Context.extStartActivity(cls: Class<T>, bundle: Bundle) =
     startActivity(Intent(this, cls).putExtras(bundle))
@@ -80,3 +85,18 @@ fun AppCompatActivity.extSetLevelFragment(bundle: Bundle, level: String) {
     }
 }
 
+fun Fragment.onCountDown(bundle: Bundle, level: String) {
+    val time = if (level == Level.EASY.toString()) timeThirty else timeSixty
+    gameTimer = object : CountDownTimer(time, 1000) {
+        override fun onFinish() {
+            this@onCountDown.extShowDialogLoser(bundle)
+        }
+
+        override fun onTick(millisUntilFinished: Long) {
+            this@onCountDown.requireActivity().findViewById<TextView>(R.id.txtPlayTime).text =
+                (millisUntilFinished / 1000).toString()
+        }
+    }.start()
+
+
+}
