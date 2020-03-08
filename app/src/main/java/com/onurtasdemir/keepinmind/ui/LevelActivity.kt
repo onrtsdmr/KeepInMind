@@ -23,7 +23,9 @@ class LevelActivity : AppCompatActivity(), View.OnClickListener {
         btnNormal.setOnClickListener(this)
         btnHard.setOnClickListener(this)
     }
-
+    override fun onBackPressed() {
+        this.extStartActivity(MainActivity::class.java,bundle)
+    }
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.btnEasy -> this extStartPlayActivity Level.EASY.toString()
