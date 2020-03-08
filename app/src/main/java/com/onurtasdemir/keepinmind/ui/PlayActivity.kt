@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.onurtasdemir.keepinmind.R
 import com.onurtasdemir.keepinmind.util.extSetLevelFragment
+import com.onurtasdemir.keepinmind.util.extStartActivity
 
 class PlayActivity : AppCompatActivity() {
     private var iconArrayList = ArrayList<String>()
@@ -18,5 +19,9 @@ class PlayActivity : AppCompatActivity() {
         iconArrayList = intent.getStringArrayListExtra("iconArrayList")!!
         bundle.putStringArrayList("iconArrayList", iconArrayList)
         extSetLevelFragment(bundle, level)
+    }
+
+    override fun onBackPressed() {
+        this.extStartActivity(LevelActivity::class.java,bundle)
     }
 }

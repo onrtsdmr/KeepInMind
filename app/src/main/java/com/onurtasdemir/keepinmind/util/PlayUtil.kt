@@ -111,6 +111,7 @@ fun Fragment.extChangeSetLevel(bundle: Bundle,nextFragment: Fragment){
         .supportFragmentManager
         .beginTransaction()
         .replace(R.id.frmPlayContainer,nextFragment)
+        .addToBackStack(null)
         .commit()
 }
 
