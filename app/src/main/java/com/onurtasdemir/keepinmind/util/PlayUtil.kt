@@ -2,9 +2,9 @@ package com.onurtasdemir.keepinmind.util
 
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.onurtasdemir.keepinmind.R
@@ -13,7 +13,6 @@ import com.onurtasdemir.keepinmind.fragment.EasyFragment
 import com.onurtasdemir.keepinmind.fragment.FinishGameFragment
 import com.onurtasdemir.keepinmind.fragment.HardFragment
 import com.onurtasdemir.keepinmind.fragment.NormalFragment
-import kotlinx.android.synthetic.main.activity_play.*
 
 private var counter: Int = 0
 private var counterGameOver: Int = 0
@@ -35,11 +34,12 @@ fun ArrayList<String>.extCheckCard(
         counter++
         cardOne = imageButton
         cardOneTag = this[index]
-    } else if (cardOne != this) {
+    } else {
         counter++
         cardTwo = imageButton
         cardTwoTag = this[index]
-        checkCard(cardOne, cardTwo, cardOneTag, cardTwoTag, bundle, level, fragment)
+        if (cardOne.id == cardTwo.id) cardOne.setImageResource(R.drawable.ic_question) else
+            checkCard(cardOne, cardTwo, cardOneTag, cardTwoTag, bundle, level, fragment)
     }
 }
 
@@ -60,7 +60,8 @@ fun checkCard(
                 cardOne.visibility = View.INVISIBLE
                 cardTwo.visibility = View.INVISIBLE
                 counterGameOver++
-                if (level.gameOver()){
+                fragment changeScore 100
+                if (level.gameOver()) {
                     fragment.extShowDialogWinner(bundle, level)
                     counterGameOver = 0
                     statement = false
@@ -68,6 +69,7 @@ fun checkCard(
             }, 1000)
         } else {
             Handler().postDelayed({
+                fragment changeScore -10
                 cardOne.setImageResource(R.drawable.ic_question)
                 cardTwo.setImageResource(R.drawable.ic_question)
             }, 500)
@@ -75,11 +77,20 @@ fun checkCard(
     }
 }
 
+private infix fun Fragment.changeScore(score: Int) {
+    val playScore = this.requireActivity().findViewById<TextView>(R.id.txtPlayScore)
+    if (score <= 0) (
+            if (playScore.text.toString().toInt() != 0) playScore.text =
+                (playScore.text.toString().toInt() + score).toString())
+    else playScore.text =
+        (playScore.text.toString().toInt() + score).toString()
+}
+
 fun String.gameOver(): Boolean {
     when (this) {
         Level.NORMAL.toString() -> if (counterGameOver == 2) statement = true
-        Level.HARD.toString() ->  if (counterGameOver == 4) statement = true
-        Level.FINISH.toString() ->  if (counterGameOver == 8) statement = true
+        Level.HARD.toString() -> if (counterGameOver == 4) statement = true
+        Level.FINISH.toString() -> if (counterGameOver == 8) statement = true
     }
     return statement
 }
@@ -89,7 +100,7 @@ fun Fragment.extShowDialogWinner(bundle: Bundle, level: String) {
         .setTitle("Winner :)")
         .setMessage("Congratulations, let's play the other level :)")
         .setPositiveButton("Next Level") { dialog, which ->
-            this.extChangeLevel(bundle,level)
+            this.extChangeLevel(bundle, level)
             dialog.dismiss()
         }
         .setCancelable(false)
@@ -97,20 +108,20 @@ fun Fragment.extShowDialogWinner(bundle: Bundle, level: String) {
     gameTimer.cancel()
 }
 
-fun Fragment.extChangeLevel(bundle: Bundle,level: String){
-    when(level){
-        Level.NORMAL.toString() -> this.extChangeSetLevel(bundle,NormalFragment())
-        Level.HARD.toString() -> this.extChangeSetLevel(bundle,HardFragment())
-        Level.FINISH.toString() -> this.extChangeSetLevel(bundle,FinishGameFragment())
+fun Fragment.extChangeLevel(bundle: Bundle, level: String) {
+    when (level) {
+        Level.NORMAL.toString() -> this.extChangeSetLevel(bundle, NormalFragment())
+        Level.HARD.toString() -> this.extChangeSetLevel(bundle, HardFragment())
+        Level.FINISH.toString() -> this.extChangeSetLevel(bundle, FinishGameFragment())
     }
 }
 
-fun Fragment.extChangeSetLevel(bundle: Bundle,nextFragment: Fragment){
+fun Fragment.extChangeSetLevel(bundle: Bundle, nextFragment: Fragment) {
     nextFragment.arguments = bundle
     this.requireActivity()
         .supportFragmentManager
         .beginTransaction()
-        .replace(R.id.frmPlayContainer,nextFragment)
+        .replace(R.id.frmPlayContainer, nextFragment)
         .addToBackStack(null)
         .commit()
 }
@@ -120,7 +131,7 @@ infix fun Fragment.extShowDialogLoser(bundle: Bundle) {
         .setTitle("Loser :)")
         .setMessage("Do you want to play again? :)")
         .setPositiveButton("Play Again") { dialog, which ->
-            this.extChangeSetLevel(bundle,EasyFragment())
+            this.extChangeSetLevel(bundle, EasyFragment())
         }
         .setCancelable(false)
         .show()
